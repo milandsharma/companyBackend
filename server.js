@@ -3,8 +3,10 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 
 const app = express();
-const port = 4000;
-
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
