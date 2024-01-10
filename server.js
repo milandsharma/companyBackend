@@ -95,7 +95,7 @@ app.post("/data", async (req, res) => {
 app.post("/validatePassword", (req, res) => {
   const { password } = req.body;
   // Example: You can implement your own password validation logic here
-  const isValid = password === "22";
+  const isValid = password == "22";
   res.json({ isValid });
 });
 
@@ -133,7 +133,7 @@ app.put("/updateData/:clientName", async (req, res) => {
       const { newData, password } = req.body;
   
       // Example: Validate password
-      const isValid = password === "22";
+      const isValid = password == "22";
       if (!isValid) {
         return res.status(401).json({ error: "Invalid password" });
       }
