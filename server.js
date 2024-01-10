@@ -105,7 +105,7 @@ app.post("/deleteData", async (req, res) => {
     const { clientName, password } = req.body;
 
     // Example: Validate password
-    const isValid = password === "22";
+    const isValid = password == "22";
     if (!isValid) {
       return res.status(401).json({ error: "Invalid password" });
     }
