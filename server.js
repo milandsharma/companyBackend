@@ -10,6 +10,12 @@ if (port == null || port == "") {
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 // Connect to MongoDB
 mongoose.connect("mongodb+srv://milandsharma:Sasni123@cluster0.iypepdn.mongodb.net/companyDB", { useNewUrlParser: true, useUnifiedTopology: true });
